@@ -1,0 +1,12 @@
+{
+  "functions": {
+    "source": "functions"
+  },
+  "hosting": {
+    "public": "frontend/dist",
+    "rewrites": [
+      { "source": "/api/**", "function": "apiProxy" },
+      { "source": "**", "destination": "/index.html" }
+    ]
+  }
+}
