@@ -4,6 +4,18 @@ Quad Quest is a realtime, multiplayer puzzle game built with Firebase (Firestore
 
 ---
 
+## Game Flow
+- As a Host
+  - SignIn with Google -> Host a Room -> Create a Room (Room code generated and Puzzle is seeded)-> Open Admin -> Activate Game -> Open Lobby
+  - If at the Home Page -> Join room with code -> Play the Game / Manage Controls in Admin Panel
+  - Track realtime scores of players by viewing the Leaderboard from the Admin Panel.
+  - Export Submissions as CSV
+
+- As a Player 
+  - Login as Guest/Login with Google -> Join room with a code -> Enter Lobby and wait if Admin hasn't activated the game -> Once activated, Play the Game -> View scores in the Leaderboard after completing the Game.
+
+---  
+
 ## Key Features
 
 - Realtime Rooms
@@ -33,8 +45,9 @@ Quad Quest is a realtime, multiplayer puzzle game built with Firebase (Firestore
 
 - Admin Tools
   - Admin panel for hosts to seed puzzles or manage a room (seed endpoint / cloud function is used to create puzzles programmatically).
-  - Only the Admin can Activate and Terminate the game in a room.
   - A Google authenticated user hosting a room would be the Admin for that particular room.
+  - Only the Admin can Activate and Terminate the game in a room.
+  - An Admin would have special features to export submissions as CSV and View Leaderboards directly.
 
 - Security Rules
   - Firestore rules are configured to allow public reads of puzzle content while restricting recipe/secret writes and ensuring only host can create/update puzzles.
@@ -82,5 +95,16 @@ Quad Quest is a realtime, multiplayer puzzle game built with Firebase (Firestore
    - `validateAnswer` — accept attempt payload, check secret answers, calculate score, write score fields to `rooms/{roomId}/submissions/{uid}` (only via secure server-side writes), and return success + score to the client.
 
 6. Hosting & Deployment: configure firebase hosting in `firebase.json`. Deploy with your usual Firebase CLI workflow.
+
+---
+
+## AI Assistance Log
+
+This project was built independently, with selective use of AI (ChatGPT) for guidance and code suggestions.
+Specific areas where AI was used:
+- Cloud Functions setup: Helped with structuring the base functions and deployment flow.
+- Firebase setup and integration: Guidance on initializing Firestore, authentication, and Firestore rules.
+- Deployment setup: Suggestions for deploying the frontend using Vercel and managing environment configurations.
+- Code review and debugging: Assistance in identifying logic issues, improving performance, and resolving Firebase-related errors.
 
 ---

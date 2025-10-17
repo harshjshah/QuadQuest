@@ -45,10 +45,10 @@ export default function AdminPanel({ go, params, user }) {
         <button onClick={start} className="py-2 px-3 bg-emerald-600 text-white rounded hover:bg-emerald-700">Activate</button>
         <button onClick={stop} className="py-2 px-3 bg-red-600 text-white border rounded hover:bg-red-700">Terminate</button>
         <button onClick={handleExport} className="py-2 px-3 border rounded hover:bg-gray-100">Export CSV</button>
-        <button onClick={() => go({ name: 'leaderboard', params: { roomId } })} className="py-2 px-3 border rounded hover:bg-gray-100">Leaderboard</button>
       </div>
       <div className="mt-2">
         <button onClick={() => go({ name: 'lobby', params: { roomId } })} className="text-sm text-gray-500 underline">Open Lobby</button>
+        <button onClick={() => go({ name: 'leaderboard', params: { roomId } })} className="text-sm ml-3 text-gray-500 underline">Leaderboard</button>
       </div>
     </div>
   );
