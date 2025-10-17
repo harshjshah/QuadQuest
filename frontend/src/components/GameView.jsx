@@ -65,9 +65,7 @@ export default function GameView({ go, params, user }) {
       const resp = await validateAnswer({ roomId, puzzleId: puzzle.id, attempt, timestamp: Date.now() });
       if (resp.data?.ok) {
         if (!isLastPuzzle) {
-          // Move to next puzzle
           const nextIdx = (room.currentPuzzleIndex || 0) + 1;
-          // Update currentPuzzleIndex in Firestore (modular syntax)
           await updateDoc(doc(db, 'rooms', roomId), { currentPuzzleIndex: nextIdx });
         } else {
           setFinalScore(resp.data.score);
@@ -109,7 +107,7 @@ export default function GameView({ go, params, user }) {
       </div>
 
       <div className="flex gap-2">
-        <button onClick={() => go({ name: 'leaderboard', params: { roomId } })} className="py-2 px-3 border rounded hover:bg-gray-100">Leaderboard</button>
+        {/* <button onClick={() => go({ name: 'leaderboard', params: { roomId } })} className="py-2 px-3 border rounded hover:bg-gray-100">Leaderboard</button> */}
         <button onClick={() => go({ name: 'home' })} className="py-2 px-3 border rounded hover:bg-gray-100">Exit</button>
       </div>
     </div>

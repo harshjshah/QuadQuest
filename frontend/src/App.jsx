@@ -49,7 +49,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white p-4 flex items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-b bg-no-repeat bg-right from-slate-50 to-white p-4 flex items-center justify-center" style={{ backgroundImage: "url('images/bg2.jpg')"}}>
       <div className="w-full max-w-xl">
         <header className="mb-4 flex items-center justify-between">
           <div>
